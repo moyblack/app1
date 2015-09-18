@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>HTML</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href = "estilos.css" rel = "stylesheet" type= "text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,400'      rel='stylesheet' type='text/css'> 
+</head>
+
+    
+    <body>
+    
+    <h1>Login</h1>
+    
+    <input type = "text" placeholder = "Nombre de Usuario" id="usuario">
+    <input type = "password" placeholder = "Contraseña" id="password">
+    
+    <p id = "mensaje">Texto de relleno</p>  
+        
+    <button onclick= "login()">Login</button>
+    
+    <div>
+        
+    <p>o puedes Registrarte</p>    
+    </div>
+     
+    
+    </body>
+    
+    <script>
+    
+        function login()
+        {
+           usuario = document.getElementById('usuario').value;
+            password = document.getElementById('password').value;
+            
+            //comparar valores
+            usuarioAlmacenado = localStorage.getItem('usuario');
+            passwordAlmacenado = localStorage.getItem('password');
+            
+            if(usuario == usuarioAlmacenado && password == passwordAlmacenado)
+            {
+                alert('EL usuario se pudo loggear');
+                
+            }
+            else
+            {
+               document.getElementById('password').style.border = "3px solid red";
+                mensaje = document.getElementById('mensaje');
+                mensaje.style.transition = ".6 all";
+                mensaje.style.opacity = "1";
+                mensaje.innerHTML = "ERROR: usuario no valido";
+                navigator.vibrate('100');
+                navigator.vibrate('200');
+           
+
+            }
+        }
+    
+    </script>
+
+</html>
